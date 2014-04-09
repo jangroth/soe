@@ -1,19 +1,15 @@
 #!/bin/bash
 
 set -e
-#set -x
 
-for i in `seq -w 9 10`
+FIND_START="find . -maxdepth 1 -type f -regex '^\./"
+FIND_END='_.*'"'"
+
+for i in `seq -w 0 99`
 do
-    FIND_START="find . -maxdepth 1 -type f -regex '^\./"
-    FIND_END='_.*'
-    FIND_COMMAND=$FIND_START$i$FIND_END"'"
-    echo $FIND_COMMAND
-    $FIND_COMMAND
-    if [[ -n `$FIND_COMMAND` ]] ; then
-        echo "true $i"
-    else
-        echo "false $i"
+    FIND_COMMAND=${FIND_START}${i}${FIND_END}
+    SCRIPT_TO_RUN=`eval $FIND_COMMAND`
+    if [[ -n $SCRIPT_TO_RUN ]] ; then
+        $SCRIPT_TO_RUN
     fi
 done
-
