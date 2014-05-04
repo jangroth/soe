@@ -2,16 +2,18 @@
 
 set -e
 
-echo `basename $0`
+source ./config.sh
 
-rm -rf ~/.vim
-rm -f ~/.vimrc
-rm -f ~/.gvimrc
+print_info_text "vim, gnome-vim (macvim)"
 
-cp -r files/vim ~
-mv ~/vim ~/.vim
+rm -rf $USER_HOME/.vim
+rm -rf ~/.vimrc
+rm -rf $USER_HOME/.gvimrc
 
-ln -s ~/.vim/.vimrc ~/.vimrc
-ln -s ~/.vim/.gvimrc ~/.gvimrc
+cp -r files/vim $USER_HOME
+mv $USER_HOME/vim $USER_HOME/.vim
 
-mkdir -p ~/.vim/.vimswap
+ln -s $USER_HOME/.vim/.vimrc $USER_HOME/.vimrc
+ln -s $USER_HOME/.vim/.gvimrc $USER_HOME/.gvimrc
+
+mkdir -p $USER_HOME/.vim/.vimswap

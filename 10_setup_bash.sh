@@ -2,16 +2,18 @@
 
 set -e
 
-echo `basename $0`
+source ./config.sh
 
-rm -f ~/.bashrc
-rm -f ~/.bash_aliases
-rm -f ~/.bash_profile
-rm -f ~/.profile
+print_info_text "bash, tree"
 
-cp -r files/bash/.bashrc ~/
-cp -r files/bash/.bash_aliases ~/
-cp -r files/bash/.bash_profile ~/
-cp -r files/bash/.profile ~/
+[ -f $USER_HOME/.bashrc ] && rm -f $USER_HOME/.bashr
+[ -f $USER_HOME/.bash_aliases ] && rm -f $USER_HOME/.bash_aliases
+[ -f $USER_HOME/.bash_profile ] && rm -f $USER_HOME/.bash_profile
+[ -f $USER_HOME/.profile ] && rm -f $USER_HOME/.profile
 
-echo "updated bash - if you want to see the changes in this shell, run source ~/.bashrc"
+cp -r files/bash/.bashrc $USER_HOME/
+cp -r files/bash/.bash_aliases $USER_HOME/
+cp -r files/bash/.bash_profile $USER_HOME/
+cp -r files/bash/.profile $USER_HOME/
+
+echo "updated bash - if you want to see the changes in this shell, run source $USER_HOME/.bashrc"

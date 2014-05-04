@@ -117,5 +117,6 @@ M2_BIN=/data/dev/java/maven3/bin
 # ANT_HOME=/data/dev/java/ant
 # ECLIPSE_HOME=/data/dev/ide/eclipse
 # TODO_DIR=/data/Dropbox/todo/rapanui
-BIN=/data/Dropbox/work/scripts/bin
-PATH=$JAVA_BIN:$M2_BIN:$PATH
+USER_BIN="/home/jan/bin"
+
+PATH=$PATH:$USER_BIN:$JAVA_BIN:$M2_BIN

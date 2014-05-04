@@ -2,8 +2,10 @@
 
 set -e
 
-echo `basename $0`
+source ./config.sh
 
-rm -f ~/.gitconfig
+print_info_text "git"
 
-cp files/git/.gitconfig ~
+[ -f $USER_HOME ] && rm -f $USER_HOME/.gitconfig
+
+cp files/git/.gitconfig $USER_HOME
