@@ -1,0 +1,16 @@
+config.sh
+    function delete_if_exists
+
+05_setup_directories
+    link default folders to dropbox (if installed)
+
+10_setup_bash
+    add bash bookmarks
+    add tree as function t (in .aliases)
+    make path modifications only if corresponding directories exist
+
+20_setup_vim
+    find out while test is not working for sym-links
+        [ -d $USER_HOME/.vim ] && rm -rf $USER_HOME/.vim
+        [ -e ~/.vimrc ] && rm -rf ~/.vimrc
+        [ -e $USER_HOME/.gvimrc ] && rm -rf $USER_HOME/.gvimrc
