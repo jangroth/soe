@@ -109,14 +109,13 @@ export LESS_TERMCAP_ZV=$(tput rsubm)
 export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 
-JAVA_HOME=/data/dev/java/java7
-JAVA_BIN=/data/dev/java/java7/bin
-# JBOSS_HOME=/data/dev/java/jboss7
-M2_HOME=/data/dev/java/maven3
-M2_BIN=/data/dev/java/maven3/bin
-# ANT_HOME=/data/dev/java/ant
-# ECLIPSE_HOME=/data/dev/ide/eclipse
-# TODO_DIR=/data/Dropbox/todo/rapanui
 USER_BIN="/home/jan/bin"
+JAVA_HOME="/home/jan/dev/java/java7"
+JAVA_BIN="${JAVA_HOME}/bin"
+M2_HOME="/home/jan/dev/java/m2"
+M2_BIN="${M2_HOME}/bin"
+GRADLE_HOME="/home/jan/dev/java/gradle"
+GRADLE_BIN="${GRADLE_HOME}/bin"
+ANDROID_TOOLS="/home/jan/dev/android/tools"
 
-PATH=$PATH:$USER_BIN:$JAVA_BIN:$M2_BIN
+PATH=$PATH:$USER_BIN:$JAVA_BIN:$M2_BIN:$GRADLE_BIN:$ANDROID_TOOLS
