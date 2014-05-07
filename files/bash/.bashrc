@@ -109,13 +109,14 @@ export LESS_TERMCAP_ZV=$(tput rsubm)
 export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 
-USER_BIN="/home/jan/bin"
-JAVA_HOME="/home/jan/dev/java/java7"
-JAVA_BIN="${JAVA_HOME}/bin"
-M2_HOME="/home/jan/dev/java/m2"
-M2_BIN="${M2_HOME}/bin"
-GRADLE_HOME="/home/jan/dev/java/gradle"
-GRADLE_BIN="${GRADLE_HOME}/bin"
-ANDROID_TOOLS="/home/jan/dev/android/tools"
+export JAVA_HOME="/data/dev/java/java7"
+export M2_HOME="/data/dev/java/m2"
+export GRADLE_HOME="/data/dev/java/gradle"
 
-PATH=$PATH:$USER_BIN:$JAVA_BIN:$M2_BIN:$GRADLE_BIN:$ANDROID_TOOLS
+USER_BIN="/home/jan/bin"
+JAVA_BIN="${JAVA_HOME}/bin"
+M2_BIN="${M2_HOME}/bin"
+GRADLE_BIN="${GRADLE_HOME}/bin"
+ANDROID_SDK="/data/dev/android/android-sdk"
+
+PATH=$PATH:$USER_BIN:$JAVA_BIN:$M2_BIN:$GRADLE_BIN:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools
