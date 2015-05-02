@@ -1,3 +1,7 @@
+set t_Co=256
+set background=dark
+colorscheme distinguished
+
 set expandtab
 set shiftwidth=4
 set tabstop=4
