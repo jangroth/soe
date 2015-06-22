@@ -6,6 +6,7 @@ alias ls='ls -la --color=auto'
 alias l='ls -CF'
 
 alias t='tree -A -L 2'
+alias vi='vim'
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
