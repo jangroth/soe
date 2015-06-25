@@ -49,16 +49,16 @@ export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 
 export EDITOR="vim"
-export JAVA_HOME="$HOME/data/dev/java/java8"
-export MAVEN_HOME="$HOME/data/dev/java/maven3"
-export SPRING_HOME="$HOME/data/dev/java/spring-boot-1.3"
+export JAVA_HOME="$HOME/data/dev/projects/java/jdk/java8"
+export MAVEN_HOME="$HOME/data/dev/projects/java/maven3"
+#export SPRING_HOME="$HOME/data/dev/java/spring-boot-1.3"
 export PROJECTS_HOME="$HOME/data/dev/projects"
 
 USER_BIN="/home/jan/bin"
 JAVA_BIN="${JAVA_HOME}/bin"
 
 M2_BIN="${M2_HOME}/bin"
-GRADLE_BIN="${GRADLE_HOME}/bin"
-ANDROID_SDK="/data/dev/android/android-sdk"
+#GRADLE_BIN="${GRADLE_HOME}/bin"
+#ANDROID_SDK="/data/dev/android/android-sdk"
 
-PATH=$PATH:$USER_BIN:$JAVA_BIN:$M2_BIN:$GRADLE_BIN:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools:$MAVEN_HOME/bin:$SPRING_HOME/bin
+PATH=$PATH:$USER_BIN:$JAVA_BIN:$M2_BIN:$MAVEN_HOME/bin
