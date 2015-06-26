@@ -35,4 +35,20 @@ _p()
     COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
     return 0
 }
+
+function cheat
+{
+    vi $CHEAT_SHEETS_HOME/$1
+}
+
+_cheat()
+{
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    opts=`find $CHEAT_SHEETS_HOME -maxdepth 1 -name "*.txt" -type f -printf "%f\n"`
+    COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+    return 0
+}
 complete -F _p p
+complete -F _cheat cheat
