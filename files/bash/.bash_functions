@@ -38,7 +38,7 @@ _p()
 
 function cheat
 {
-    vi $CHEAT_SHEETS_HOME/$1
+    vim $CHEAT_SHEETS_HOME/$1
 }
 
 _cheat()
