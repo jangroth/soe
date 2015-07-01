@@ -51,11 +51,14 @@ export LESS_TERMCAP_ZW=$(tput rsupm)
 export EDITOR="vim"
 export JAVA_HOME="$HOME/data/dev/projects/java/jdk/java8"
 export MAVEN_HOME="$HOME/data/dev/projects/java/maven3"
+export SCALA_HOME="$HOME/data/dev/projects/scala/scala"
+
 export PROJECTS_HOME="$HOME/data/dev/projects"
 export CHEAT_SHEETS_HOME="$HOME/data/dev/projects/cheat-sheets"
 
 USER_BIN="/home/jan/bin"
 JAVA_BIN="${JAVA_HOME}/bin"
 M2_BIN="${M2_HOME}/bin"
+SCALA_BIN="${SCALA_HOME}/bin"
 
-PATH=$PATH:$USER_BIN:$JAVA_BIN:$M2_BIN:$MAVEN_HOME/bin
+PATH=$PATH:$USER_BIN:$JAVA_BIN:$M2_BIN:$SCALA_BIN
