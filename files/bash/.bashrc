@@ -49,12 +49,14 @@ export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 
 export EDITOR="vim"
-export JAVA_HOME="$HOME/data/dev/projects/java/jdk/java"
-export MAVEN_HOME="$HOME/data/dev/projects/java/maven3"
-export SCALA_HOME="$HOME/data/dev/projects/scala/scala"
+export JAVA_HOME="$HOME/data/dev/environments/java/jdk/java"
+export MAVEN_HOME="$HOME/data/dev/environments/java/maven3"
+export SCALA_HOME="$HOME/data/dev/environments/scala/scala"
 
 export PROJECTS_HOME="$HOME/data/dev/projects"
+export ENVIRONMENTS_HOME="$HOME/data/dev/environments"
 export CHEAT_SHEETS_HOME="$HOME/data/dev/projects/cheat-sheets"
+export TODOS_HOME="/data/Dropbox/documents/todo.txt"
 
 USER_BIN="/home/jan/bin"
 JAVA_BIN="${JAVA_HOME}/bin"

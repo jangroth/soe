@@ -21,6 +21,21 @@ find_git_dirty() {
   fi
 }
 
+function e
+{
+    cd $ENVIRONMENTS_HOME/$1
+}
+
+_e()
+{
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    opts=`ls -la $ENVIRONMENTS_HOME | grep -e '^d' | awk '{print $9}' | grep -v '^\.'`
+    COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+    return 0
+}
+
 function p
 {
     cd $PROJECTS_HOME/$1
@@ -51,4 +66,5 @@ _cheat()
     return 0
 }
 complete -F _p p
+complete -F _e e
 complete -F _cheat cheat
