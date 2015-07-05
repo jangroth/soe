@@ -11,6 +11,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'derekwyatt/vim-scala'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
