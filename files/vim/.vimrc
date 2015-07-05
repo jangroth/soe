@@ -95,4 +95,7 @@ autocmd InsertLeave * redraw!
 map __ :set hls!<CR>
 map _ic :set ignorecase!<CR>
 
+" open help in vertical split
+autocmd FileType help wincmd L
+
 syntax on
