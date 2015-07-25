@@ -51,20 +51,20 @@ _p()
     return 0
 }
 
-function cheat
+function note
 {
-    vim $CHEAT_SHEETS_HOME/$1
+    vim $NOTES_HOME/$1
 }
 
-_cheat()
+_note()
 {
     local cur prev opts
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
-    opts=`find $CHEAT_SHEETS_HOME -maxdepth 1 -name "*.txt" -type f -printf "%f\n"`
+    opts=`find $NOTES_HOME -maxdepth 1 -name "*.txt" -type f -printf "%f\n"`
     COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
     return 0
 }
 complete -F _p p
 complete -F _e e
-complete -F _cheat cheat
+complete -F _note note

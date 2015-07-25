@@ -55,7 +55,7 @@ export SCALA_HOME="$HOME/data/dev/environments/scala/scala"
 
 export PROJECTS_HOME="$HOME/data/dev/projects"
 export ENVIRONMENTS_HOME="$HOME/data/dev/environments"
-export CHEAT_SHEETS_HOME="$HOME/data/dev/projects/cheat-sheets"
+export NOTES_HOME="$HOME/data/dev/projects/notes"
 export TODOS_HOME="/data/Dropbox/documents/todo.txt"
 
 USER_BIN="/home/jan/bin"
