@@ -12,3 +12,5 @@ alias todo='vim $TODOS_HOME'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+
+alias pstree='pstree -ahp'
