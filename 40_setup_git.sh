@@ -8,4 +8,4 @@ print_info_text "git"
 
 [ -f $USER_HOME ] && rm -f $USER_HOME/.gitconfig
 
-cp files/git/.gitconfig $USER_HOME
+cp files/git/gitconfig $USER_HOME/.gitconfig
