@@ -3,7 +3,7 @@ set nocompatible
 filetype off
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=/home/jan/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
@@ -94,6 +94,9 @@ match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * redraw!
 map __ :set hls!<CR>
 map _ic :set ignorecase!<CR>
+
+" toggle nerdtree on ctrl-n
+map <C-n> :NERDTreeToggle<CR>
 
 " open help in vertical split
 autocmd FileType help wincmd L
