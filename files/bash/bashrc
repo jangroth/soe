@@ -49,17 +49,31 @@ export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 
 export EDITOR="vim"
-export JAVA_HOME="$HOME/data/dev/environments/java/jdk/java"
-export MAVEN_HOME="$HOME/data/dev/environments/java/maven3"
-export SCALA_HOME="$HOME/data/dev/environments/scala/scala"
-
 export PROJECTS_HOME="$HOME/data/dev/projects"
 export ENVIRONMENTS_HOME="$HOME/data/dev/environments"
 export NOTES_HOME="$HOME/data/dev/projects/notes"
 
-USER_BIN="/home/jan/bin"
-JAVA_BIN="${JAVA_HOME}/bin"
-M2_BIN="${M2_HOME}/bin"
-SCALA_BIN="${SCALA_HOME}/bin"
+export JAVA_HOME="$HOME/data/dev/environments/java/jdk/java"
+export MAVEN_HOME="$HOME/data/dev/environments/java/maven3"
+export SCALA_HOME="$HOME/data/dev/environments/scala/scala"
+export RBENV_ROOT="$ENVIRONMENTS_HOME/rbenv"
 
-PATH=$PATH:$USER_BIN:$JAVA_BIN:$M2_BIN:$SCALA_BIN
+USER_BIN="${USER_HOME}/bin"
+
+if [ -d "${RBENV_ROOT}" ]; then
+  export PATH="${RBENV_ROOT}/bin:${PATH}"
+fi
+if [ -d "${USER_BIN}" ]; then
+  export PATH="${USER_BIN}:${PATH}"
+fi
+if [ -d "${JAVA_HOME}" ]; then
+  export PATH="${JAVA_HOME}/bin:${PATH}"
+fi
+if [ -d "${MAVEN_HOME}" ]; then
+  export PATH="${MAVEN_HOME}/bin:${PATH}"
+fi
+if [ -d "${SCALA_HOME}" ]; then
+  export PATH="${SCALA_HOME}/bin:${PATH}"
+fi
+
+eval "$(rbenv init -)"
