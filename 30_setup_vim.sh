@@ -17,3 +17,6 @@ ln -s $USER_HOME/.vim/vimrc $USER_HOME/.vimrc
 ln -s $USER_HOME/.vim/gvimrc $USER_HOME/.gvimrc
 
 mkdir -p $USER_HOME/.vim/.vimswap
+mkdir -p $USER_HOME/.vim/bundle
+
+git clone https://github.com/scrooloose/nerdtree $USER_HOME/.vim/bundle/nerdtree
