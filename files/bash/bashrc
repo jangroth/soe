@@ -75,5 +75,8 @@ fi
 if [ -d "${SCALA_HOME}" ]; then
   export PATH="${SCALA_HOME}/bin:${PATH}"
 fi
+if [ -d "/usr/local/go" ]; then
+  export PATH="/usr/local/go/bin:${PATH}"
+fi
 
 eval "$(rbenv init -)"
