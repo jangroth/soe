@@ -81,18 +81,20 @@ autocmd InsertLeave * redraw!
 map __ :set hls!<CR>
 map _ic :set ignorecase!<CR>
 
-let mapleader="\\"                                                                                                                                                                                                   
-map <Leader>h :set hls!<CR>                                                                                                                                                                                          
-map <Leader>i :set ignorecase!<CR>                                                                                                                                                                                   
-map <Leader>l :set number!<CR>                                                                                                                                                                                       
-map <Leader>p :set paste!<CR>                                                                                                                                                                                        
-map <Leader>c :set cursorline!<CR>                                                                                                                                                                                   
-                                                                                                                                                                                                                     
-map <C-n> :NERDTreeToggle<CR>                                                                                                                                                                                        
-map <C-h> <C-w><C-h>                                                                                                                                                                                                 
-map <C-j> <C-w><C-j>                                                                                                                                                                                                 
-map <C-k> <C-w><C-k>                                                                                                                                                                                                 
-map <C-l> <C-w><C-l>  
+let mapleader="\\"
+map <Leader>h :set hls!<CR>
+map <Leader>l :set number!<CR>
+map <Leader>p :set paste!<CR>
+
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>i  <Plug>(go-install)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+
+map <C-n> :NERDTreeToggle<CR>
+map <C-h> <C-w><C-h>
+map <C-j> <C-w><C-j>
+map <C-k> <C-w><C-k>
+map <C-l> <C-w><C-l>
 map <C-n> :NERDTreeToggle<CR>
 
 " open help in vertical split
