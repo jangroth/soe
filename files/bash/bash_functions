@@ -1,5 +1,13 @@
 #!/bin/bash
 
+prompt_command() {
+  local last_exit_code="$?"
+  history -a
+  find_git_branch 
+  find_git_dirty
+  find_exit_code $last_exit_code
+}
+  
 find_git_branch() {
   local branch
   if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
@@ -8,7 +16,7 @@ find_git_branch() {
     fi
     git_branch="($branch)"
   else
-    git_branch=""
+    git_branch=''
   fi
 }
 
@@ -18,6 +26,14 @@ find_git_dirty() {
     git_dirty='*'
   else
     git_dirty=''
+  fi
+}
+
+find_exit_code() {
+  if [[ $1 == 0 ]]; then
+    exit_code=''
+  else
+    exit_code=':( '
   fi
 }
 
