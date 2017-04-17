@@ -83,19 +83,32 @@ map _ic :set ignorecase!<CR>
 
 let mapleader="\\"
 map <Leader>h :set hls!<CR>
-map <Leader>l :set number!<CR>
+map <Leader>n :set number!<CR>
 map <Leader>p :set paste!<CR>
 
-autocmd FileType go nmap <leader>b  <Plug>(go-build)
-autocmd FileType go nmap <leader>i  <Plug>(go-install)
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
+"vim-go
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#cmd#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go noremap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go noremap <leader>T :GoTestFunc<enter>
+autocmd FileType go noremap <leader>t :GoTest<enter>
+autocmd FileType go noremap <leader>d :GoDef<enter>
+autocmd FileType go noremap <leader>i :GoInfo<enter>
+autocmd FileType go noremap <leader>c :GoCoverageToggle<enter>
 
 map <C-n> :NERDTreeToggle<CR>
 map <C-h> <C-w><C-h>
 map <C-j> <C-w><C-j>
 map <C-k> <C-w><C-k>
 map <C-l> <C-w><C-l>
-map <C-n> :NERDTreeToggle<CR>
 
 " open help in vertical split
 autocmd FileType help wincmd L
