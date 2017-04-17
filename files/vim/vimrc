@@ -104,6 +104,9 @@ autocmd FileType go noremap <leader>d :GoDef<enter>
 autocmd FileType go noremap <leader>i :GoInfo<enter>
 autocmd FileType go noremap <leader>c :GoCoverageToggle<enter>
 
+let g:go_auto_sameids = 1
+let g:go_fmt_command = "goimports"
+
 map <C-n> :NERDTreeToggle<CR>
 map <C-h> <C-w><C-h>
 map <C-j> <C-w><C-j>
