@@ -20,5 +20,3 @@ mkdir -p $USER_HOME/.vim/.vimswap
 mkdir -p $USER_HOME/.vim/bundle
 
 git clone https://github.com/scrooloose/nerdtree $USER_HOME/.vim/bundle/nerdtree
-git clone https://github.com/fatih/vim-go.git $USER_HOME/.vim/bundle/vim-go
-

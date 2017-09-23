@@ -17,6 +17,12 @@ set nowrap
 set paste
 filetype plugin indent on
 
+" This should be at the beginning as it will interfere with highlight otherwise
+syntax on
+
+" Redraw on leaving insert mode 
+autocmd InsertLeave * redraw!
+
 " Number of lines to use for the command line
 set cmdheight=1 
 
@@ -70,14 +76,6 @@ set dir=~/.vim/.vimswap//
 
 set lazyredraw
 
-" we hate literal tabs tabs
-highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
-match LiteralTabs /\s\ /
-
-" highlight extra spaces ftw
-highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * redraw!
 map __ :set hls!<CR>
 map _ic :set ignorecase!<CR>
 
@@ -85,27 +83,6 @@ let mapleader="\\"
 map <Leader>h :set hls!<CR>
 map <Leader>n :set number!<CR>
 map <Leader>p :set paste!<CR>
-
-"vim-go
-" run :GoBuild or :GoTestCompile based on the go file
-function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    call go#cmd#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
-  endif
-endfunction
-
-autocmd FileType go noremap <leader>b :<C-u>call <SID>build_go_files()<CR>
-autocmd FileType go noremap <leader>T :GoTestFunc<enter>
-autocmd FileType go noremap <leader>t :GoTest<enter>
-autocmd FileType go noremap <leader>d :GoDef<enter>
-autocmd FileType go noremap <leader>i :GoInfo<enter>
-autocmd FileType go noremap <leader>c :GoCoverageToggle<enter>
-
-let g:go_auto_sameids = 1
-let g:go_fmt_command = "goimports"
 
 map <C-n> :NERDTreeToggle<CR>
 map <C-h> <C-w><C-h>
@@ -116,4 +93,10 @@ map <C-l> <C-w><C-l>
 " open help in vertical split
 autocmd FileType help wincmd L
 
-syntax on
+" we hate literal tabs tabs
+highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
+match LiteralTabs /\s\ /
+" highlight extra spaces ftw
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+match ExtraWhitespace /\s\+\%#\@<!$/
+
