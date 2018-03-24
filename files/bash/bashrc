@@ -62,6 +62,7 @@ USER_BIN="${USER_HOME}/bin"
 
 if [ -d "${RBENV_ROOT}" ]; then
   export PATH="${RBENV_ROOT}/bin:${PATH}"
+  eval "$(rbenv init -)"
 fi
 if [ -d "${USER_BIN}" ]; then
   export PATH="${USER_BIN}:${PATH}"
@@ -80,4 +81,3 @@ if [ -d "/usr/local/go" ]; then
   export PATH="${PATH}:/usr/local/go/bin:${GOPATH}/bin"
 fi
 
-eval "$(rbenv init -)"
