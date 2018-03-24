@@ -2,6 +2,10 @@
 
 export USER_HOME="/home/jan"
 
+if [[ $OSTYPE == 'darwin17' ]]; then
+  export USER_HOME="/Users/jangroth"
+fi
+
 function print_info_text {
     echo "***************************"
     echo `basename $0`
