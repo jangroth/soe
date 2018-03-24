@@ -1,9 +1,9 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-export THIS_OS = 'linux'
+export THIS_OS='linux'
 if [[ $OSTYPE == 'darwin17' ]]; then
-  export THIS_OS = 'macos'
+  export THIS_OS='macos'
 fi
 
 if [ -f $HOME/.bash_colors ]; then
@@ -60,7 +60,7 @@ export NOTES_HOME="$HOME/data/dev/projects/notes"
 
 export JAVA_HOME="$HOME/data/dev/environments/java/jdk/java"
 if [[ $THIS_OS == 'macos' ]]; then
-  JAVA_HOME = "$(/usr/libexec/java_home)"
+  export JAVA_HOME="$(/usr/libexec/java_home)"
 fi
 
 export MAVEN_HOME="$HOME/data/dev/environments/java/maven3"
