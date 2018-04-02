@@ -1,6 +1,11 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+export THIS_OS='linux'
+if [[ $OSTYPE == 'darwin17' ]]; then
+  export THIS_OS='macos'
+fi
+
 if [ -f $HOME/.bash_colors ]; then
     source $HOME/.bash_colors
 fi
@@ -54,6 +59,10 @@ export ENVIRONMENTS_HOME="$HOME/data/dev/environments"
 export NOTES_HOME="$HOME/data/dev/projects/notes"
 
 export JAVA_HOME="$HOME/data/dev/environments/java/jdk/java"
+if [[ $THIS_OS == 'macos' ]]; then
+  export JAVA_HOME="$(/usr/libexec/java_home)"
+fi
+
 export MAVEN_HOME="$HOME/data/dev/environments/java/maven3"
 export SCALA_HOME="$HOME/data/dev/environments/scala/scala"
 export RBENV_ROOT="$ENVIRONMENTS_HOME/rbenv"
@@ -62,6 +71,7 @@ USER_BIN="${USER_HOME}/bin"
 
 if [ -d "${RBENV_ROOT}" ]; then
   export PATH="${RBENV_ROOT}/bin:${PATH}"
+  eval "$(rbenv init -)"
 fi
 if [ -d "${USER_BIN}" ]; then
   export PATH="${USER_BIN}:${PATH}"
@@ -80,4 +90,3 @@ if [ -d "/usr/local/go" ]; then
   export PATH="${PATH}:/usr/local/go/bin:${GOPATH}/bin"
 fi
 
-eval "$(rbenv init -)"

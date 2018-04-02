@@ -2,7 +2,6 @@
 
 alias ll='ls -alF'
 alias la='ls -A'
-alias ls='ls -la --color=auto'
 alias l='ls -CF'
 
 alias t='tree -A -L 2'
@@ -13,3 +12,9 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 alias pstree='pstree -ahp'
+
+if [[ $THIS_OS == 'macos' ]]; then
+  alias ls='ls -laG'
+else
+  alias ls='ls -la --color=auto'
+fi
