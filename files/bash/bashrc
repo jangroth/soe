@@ -10,8 +10,8 @@ fi
 if [ -f $HOME/.bash_aliases ]; then
     source $HOME/.bash_aliases
 fi
-if [ -f $HOME/bin/tmuxinator.bash ]; then
-    source $HOME/bin/tmuxinator.bash
+if [ -f $HOME/.gitcompletion ]; then
+    source $HOME/.gitcompletion
 fi
 
 # history
