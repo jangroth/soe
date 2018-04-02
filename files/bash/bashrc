@@ -64,7 +64,6 @@ if [[ $THIS_OS == 'macos' ]]; then
 fi
 
 export MAVEN_HOME="$HOME/data/dev/environments/java/maven3"
-export SCALA_HOME="$HOME/data/dev/environments/scala/scala"
 export RBENV_ROOT="$ENVIRONMENTS_HOME/rbenv"
 
 USER_BIN="${USER_HOME}/bin"
@@ -81,9 +80,6 @@ if [ -d "${JAVA_HOME}" ]; then
 fi
 if [ -d "${MAVEN_HOME}" ]; then
   export PATH="${MAVEN_HOME}/bin:${PATH}"
-fi
-if [ -d "${SCALA_HOME}" ]; then
-  export PATH="${SCALA_HOME}/bin:${PATH}"
 fi
 if [ -d "/usr/local/go" ]; then
   export GOPATH="$PROJECTS_HOME/go"
