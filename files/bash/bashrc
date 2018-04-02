@@ -30,7 +30,7 @@ HISTSIZE=99999
 HISTFILESIZE=99999
 
 PROMPT_COMMAND=prompt_command
-PS1="\[$txtred\]\$exit_code\[$txtcyn\]\u@\h\[$txtrst\] \w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+PS1="\[$txtred\]\$exit_code\[$txtcyn\]\u@\h\[$txtrst\] \w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\[$txtblu\]\$aws_role\[$txtrst\]\$ "
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
