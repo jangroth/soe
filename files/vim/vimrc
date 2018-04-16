@@ -20,11 +20,11 @@ filetype plugin indent on
 " This should be at the beginning as it will interfere with highlight otherwise
 syntax on
 
-" Redraw on leaving insert mode 
+" Redraw on leaving insert mode
 autocmd InsertLeave * redraw!
 
 " Number of lines to use for the command line
-set cmdheight=1 
+set cmdheight=1
 
 " Shows a line indicating mode (ie, the -- INSERT -- at the bottom )
 set showmode
@@ -32,7 +32,7 @@ set showmode
 " Show file position
 set ruler
 
-" Show incomplete commands in status bar. 
+" Show incomplete commands in status bar.
 set showcmd
 
 " Show cursor line by default - makes it easier to pair
@@ -100,3 +100,7 @@ match LiteralTabs /\s\ /
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+\%#\@<!$/
 
+" define macros
+let @i='i*ea*'
+let @b='i**ea**'
+let @s='$x'
