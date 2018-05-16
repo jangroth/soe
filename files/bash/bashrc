@@ -60,10 +60,13 @@ export NOTES_HOME="$HOME/data/dev/projects/notes"
 
 export JAVA_HOME="$HOME/data/dev/environments/java/jdk/java"
 if [[ $THIS_OS == 'macos' ]]; then
-  export JAVA_HOME="$(/usr/libexec/java_home)"
+  export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+fi
+export MAVEN_HOME="$HOME/data/dev/environments/java/maven3"
+if [[ $THIS_OS == 'macos' ]]; then
+  export MAVEN_HOME="/usr/local/Cellar/maven/3.5.3"
 fi
 
-export MAVEN_HOME="$HOME/data/dev/environments/java/maven3"
 export RBENV_ROOT="$ENVIRONMENTS_HOME/rbenv"
 
 USER_BIN="${USER_HOME}/bin"
