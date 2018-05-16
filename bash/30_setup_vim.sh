@@ -10,7 +10,7 @@ rm -rf $USER_HOME/.vim
 rm -rf $USER_HOME/.vimrc
 rm -rf $USER_HOME/.gvimrc
 
-cp -r files/vim $USER_HOME
+cp -r ../files/vim $USER_HOME
 mv $USER_HOME/vim $USER_HOME/.vim
 
 ln -s $USER_HOME/.vim/vimrc $USER_HOME/.vimrc
