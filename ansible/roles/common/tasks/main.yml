@@ -2,8 +2,18 @@
 - debug:
     msg: common role
 
-- name: create user
-  user:
-    name: jan
-    shell: /bin/bash
+- name: install python 2
+  raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+  become: yes
+
+- name: Update repositories cache and install "foo" package
+  apt:
+    name: tree
+    update_cache: yes
+  become: yes
+
+# - name: create user
+#   user:
+#     name: jan
+#     shell: /bin/bash
 
