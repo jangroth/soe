@@ -1,0 +1,10 @@
+---
+- name: debug
+  debug:
+    msg: common role
+
+- name: create user
+  user:
+    name: jan
+    shell: /bin/bash
+
