@@ -6,14 +6,20 @@
   raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
   become: yes
 
-- name: Update repositories cache and install "foo" package
+- name: Install essential packages
   apt:
-    name: tree
+    name: 
+      - tree
+      - tmux
+      - vim
+      - git
     update_cache: yes
   become: yes
 
-# - name: create user
-#   user:
-#     name: jan
-#     shell: /bin/bash
+- name: create user
+  user:
+    name: jan
+    shell: /bin/bash
+    password: "jan"
+  become: yes
 
