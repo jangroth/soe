@@ -15,7 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "ubuntu1804" do |app|
     app.vm.hostname = "ubuntu1804.test"
-    app.vm.network :private_network, ip: "192.168.60.1"
+    app.vm.network :private_network, ip: "192.168.60.2"
   end
 
 end

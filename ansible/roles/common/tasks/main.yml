@@ -1,6 +1,5 @@
 ---
-- name: debug
-  debug:
+- debug:
     msg: common role
 
 - name: create user
