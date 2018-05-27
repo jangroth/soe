@@ -6,7 +6,7 @@ source ./config.sh
 
 print_info_text "bash, tree"
 
-[ -f $USER_HOME/.bashrc ] && rm -f $USER_HOME/.bashr
+[ -f $USER_HOME/.bashrc ] && rm -f $USER_HOME/.bashrc
 [ -f $USER_HOME/.bash_aliases ] && rm -f $USER_HOME/.bash_aliases
 [ -f $USER_HOME/.bash_colors ] && rm -f $USER_HOME/.bash_colors
 [ -f $USER_HOME/.bash_functions ] && rm -f $USER_HOME/.bash_functions
