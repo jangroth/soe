@@ -1,28 +1,26 @@
 ---
-- debug:
-    msg: common role
-
-- name: install python 2
+- name: make sure Python2 is installed
+  become: yes
   raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
-  become: yes
-
-- name: Install essential packages
-  apt:
-    name: 
-      - tree
-      - tmux
-      - vim
-      - git
-    update_cache: yes
-  become: yes
 
 - name: create user
+  become: yes
   user:
     name: jan
     shell: /bin/bash
-    password: "jan"
+    password: "$1$salt$xFtwCBGnevITTPwyX3lg3."
+  register: user
+
+- name: install essential packages
   become: yes
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+  with_items:
+    - tree
+    - tmux
+    - vim
+    - git
 
-- set_fact:
-    bruce: lee
-
+- include_tasks: bash.yml become=yes
+- include_tasks: tmux.yml become=yes

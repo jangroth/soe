@@ -8,4 +8,4 @@
   tasks:
   - name: debug
     debug:
-      msg: 'main playbook {{ bruce }}'
+      msg: 'main playbook '

@@ -1,0 +1,14 @@
+---
+
+- name: copy bash files 
+  copy:
+    src: "../../../files/bash/{{ item }}"
+    dest: "{{ user.home }}/.{{ item }}"
+    owner: "{{ user.name }}"
+  with_items:
+    - "bashrc"
+    - "bash_aliases"
+    - "bash_colors"
+    - "bash_functions"
+    - "bash_profile"
+    - "profile"

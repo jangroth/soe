@@ -1,0 +1,10 @@
+---
+
+- name: copy tmux files 
+  become: yes
+  copy:
+    src: "../../../files/tmux/{{ item }}"
+    dest: "{{ user.home }}/.{{ item }}"
+    owner: "{{ user.name }}"
+  with_items:
+    - "tmux.conf"
