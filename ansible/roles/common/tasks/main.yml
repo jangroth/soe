@@ -23,3 +23,6 @@
     password: "jan"
   become: yes
 
+- set_fact:
+    bruce: lee
+
