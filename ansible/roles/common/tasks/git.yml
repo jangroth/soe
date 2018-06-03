@@ -1,0 +1,21 @@
+---
+
+- name: install packages
+  package:
+    name: "{{ item }}" 
+  with_items:
+    - git
+
+- name: copy git files 
+  copy:
+    src: "../../../files/git/{{ item }}"
+    dest: "{{ user.home }}/.{{ item }}"
+    owner: "{{ user.name }}"
+  with_items:
+    - "gitconfig"
+
+- name: Download git completion
+  get_url:
+    url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+    dest: "{{ user.home }}/.gitcompletion"
+    validate_certs: False

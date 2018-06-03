@@ -1,26 +1,19 @@
 ---
 - name: make sure Python2 is installed
-  become: yes
   raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
 
 - name: create user
-  become: yes
   user:
     name: jan
     shell: /bin/bash
     password: "$1$salt$xFtwCBGnevITTPwyX3lg3."
   register: user
 
-- name: install essential packages
-  become: yes
+- name: Update apt cache
   apt:
-    name: "{{ item }}"
     update_cache: yes
-  with_items:
-    - tree
-    - tmux
-    - vim
-    - git
 
-- include_tasks: bash.yml become=yes
-- include_tasks: tmux.yml become=yes
+- include_tasks: bash.yml
+- include_tasks: vim.yml
+- include_tasks: tmux.yml
+- include_tasks: git.yml

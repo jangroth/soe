@@ -1,4 +1,9 @@
 ---
+- name: install packages
+  package:
+    name: "{{ item }}" 
+  with_items:
+    - tree
 
 - name: copy bash files 
   copy:

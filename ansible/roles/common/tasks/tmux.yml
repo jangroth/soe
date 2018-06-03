@@ -1,7 +1,11 @@
 ---
+- name: install packages
+  package:
+    name: "{{ item }}" 
+  with_items:
+    - tmux
 
 - name: copy tmux files 
-  become: yes
   copy:
     src: "../../../files/tmux/{{ item }}"
     dest: "{{ user.home }}/.{{ item }}"
