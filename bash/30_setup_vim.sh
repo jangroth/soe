@@ -20,4 +20,6 @@ mkdir -p $USER_HOME/.vim/.vimswap
 mkdir -p $USER_HOME/.vim/bundle
 
 git clone https://github.com/scrooloose/nerdtree $USER_HOME/.vim/bundle/nerdtree
-git clone https://github.com/pearofducks/ansible-vim ~/.vim/bundle/ansible-vim
+git clone https://github.com/pearofducks/ansible-vim $USER_HOME/.vim/bundle/ansible-vim
+
+echo "updated vim"
