@@ -13,4 +13,4 @@ cp -r ../files/tmux/tmux.conf $USER_HOME/.tmux.conf
 
 git clone https://github.com/tmux-plugins/tpm $USER_HOME/.tmux/plugins/tpm
 
-echo "updated tmux"
+echo "tmux set up, use 'prefix+I' to install tmux plugins."
