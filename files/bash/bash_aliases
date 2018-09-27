@@ -13,6 +13,8 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 alias pstree='pstree -ahp'
+alias venv2='virtualenv --python=python2 venv2'
+alias venv3='virtualenv --python=python3 venv3'
 
 if [[ $THIS_OS == 'macos' ]]; then
   alias ls='ls -laG'
