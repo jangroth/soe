@@ -17,6 +17,10 @@ alias pstree='pstree -ahp'
 alias venv2='virtualenv --python=python2 venv2'
 alias venv3='virtualenv --python=python3 venv3'
 
+alias tmls='tmux list-sessions'
+alias tmas_function='echo "Attach to tmux session"'
+function tmas() { tmux attach-session -t "$1" ; }
+
 if [[ $THIS_OS == 'macos' ]]; then
   alias ls='ls -laG'
 else
