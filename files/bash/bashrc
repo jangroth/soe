@@ -18,6 +18,9 @@ fi
 if [ -f $HOME/.gitcompletion ]; then
     source $HOME/.gitcompletion
 fi
+if [ -f $HOME/.gitprompt ]; then
+    source $HOME/.gitprompt
+fi
 
 # history
 #
@@ -29,8 +32,23 @@ HISTTIMEFORMAT='%F %T '
 HISTSIZE=99999
 HISTFILESIZE=99999
 
+# prompt
+#
+# Show if there are unstaged (*) and/or staged (+) changes
+export GIT_PS1_SHOWDIRTYSTATE=1
+# Show if there are untracked files (%)
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+# Show how we're tracking relative to upstream
+export GIT_PS1_SHOWUPSTREAM="auto"
+# Show colours in bash prompt
+export GIT_PS1_SHOWCOLORHINTS=1
+# Show if there is anything stashed ($)
+export GIT_PS1_SHOWSTASHSTATE=1
+
+# trigger function that export variables used in prompt
 PROMPT_COMMAND=prompt_command
-PS1="\[$txtred\]\$exit_code\[$txtcyn\]\u@\h\[$txtrst\] \w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\[$txtblu\]\$aws_role\[$txtrst\]\$ "
+
+# PS1=this is set in bash_functions
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
