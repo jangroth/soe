@@ -2,7 +2,7 @@
 [ -z "$PS1" ] && return
 
 export THIS_OS='linux'
-if [[ $OSTYPE == 'darwin17' ]]; then
+if [[ $OSTYPE == 'darwin18' ]]; then
   export THIS_OS='macos'
 fi
 

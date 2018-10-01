@@ -2,7 +2,7 @@
 
 export USER_HOME="/home/jan"
 
-if [[ $OSTYPE == 'darwin17' ]]; then
+if [[ $OSTYPE == 'darwin18' ]]; then
   export USER_HOME="/Users/jangroth"
 fi
 
