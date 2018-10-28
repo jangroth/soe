@@ -1,15 +1,18 @@
 #!/bin/bash
 
-prompt_command() {
+prompt_command()
+{
   local last_exit_code="$?"
   history -a
   find_exit_code $last_exit_code
   find_awsume_role
   find_virtual_env
-  __git_ps1 "\[$txtred\]\${exit_code}\[$txtcyn\]\${virtual_env}\u@\h\[$txtrst\] \w" "\[$txtblu\]\${aws_role}\[$txtrst\]\$ "
+  find_proxy
+  __git_ps1 "\[$txtred\]\${exit_code}\[$txtcyn\]\${virtual_env}\${proxy}\u@\h\[$txtrst\] \w" "\[$txtblu\]\${aws_role}\[$txtrst\]\$ "
 }
 
-find_virtual_env() {
+find_virtual_env()
+{
   if [[ "$VIRTUAL_ENV" ]]; then
     virtual_env="(`basename \"$VIRTUAL_ENV\"`) "
   else
@@ -17,13 +20,15 @@ find_virtual_env() {
   fi
 }
 
-find_awsume_role() {
+find_awsume_role()
+{
   if [[ "$AWSUME_PROFILE" ]]; then
     aws_role="($AWSUME_PROFILE)"
   fi
 }
 
-find_exit_code() {
+find_exit_code()
+{
   if [[ $1 == 0 ]]; then
     exit_code=''
   else
@@ -31,7 +36,27 @@ find_exit_code() {
   fi
 }
 
-function p
+find_proxy()
+{
+  if [[ `env | grep -i 'proxy'` ]]; then
+    proxy='-p- '
+  else
+    proxy=''
+  fi
+}
+
+function set-env()
+{
+  local path=$HOME/$1
+  if [ -f $path ]; then
+    cat $path
+    source $path
+  else
+    echo "Cannot find $path"
+  fi
+}
+
+function p()
 {
     cd $PROJECTS_HOME/$1
 }
@@ -46,25 +71,4 @@ _p()
     return 0
 }
 
-function n
-{
-    vim $NOTES_HOME/$1
-}
-
-function n-show
-{
-    cat $NOTES_HOME/$1
-}
-
-_n()
-{
-    local cur prev opts
-    COMPREPLY=()
-    cur="${COMP_WORDS[COMP_CWORD]}"
-    opts=`find $NOTES_HOME -maxdepth 1 -name "*.txt" -type f -printf "%f\n"`
-    COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
-    return 0
-}
 complete -F _p p
-complete -F _n n
-complete -F _n n-show
