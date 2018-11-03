@@ -101,6 +101,8 @@ highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+\%#\@<!$/
 
 " define macros
+" Use Ctrl-V + ESC for special characters
 let @i='i*ea*'
 let @b='i**ea**'
-let @s='$x'
+let @s='$x0'
+let @l='100lbXi'
