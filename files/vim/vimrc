@@ -102,7 +102,14 @@ match ExtraWhitespace /\s\+\%#\@<!$/
 
 " define macros
 " Use Ctrl-V + ESC for special characters
+" markdown italics
 let @i='i*ea*'
+" markdown bold
 let @b='i**ea**'
+" Delete space at line end
 let @s='$x0'
-let @l='100lbXi'
+" Delete all trailing spaces in file
+let @S=':%s/\s\+$//g'
+" Break line after 100 characters (minus last word)
+let @l='0100lbXi'
+
