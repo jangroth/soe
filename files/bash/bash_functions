@@ -38,7 +38,7 @@ find_exit_code()
 
 find_proxy()
 {
-  if [[ `env | grep -i 'proxy'` ]]; then
+  if [[ `env | grep 'http.\{0,1\}_proxy'` ]]; then
     proxy='-p- '
   else
     proxy=''
