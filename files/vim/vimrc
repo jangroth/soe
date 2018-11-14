@@ -65,6 +65,7 @@ let mapleader="\\"
 map <Leader>h :set hls!<CR>
 map <Leader>i :set ignorecase!<CR>
 map <Leader>l :set number!<CR>
+map <Leader>n :set number!<CR>
 map <Leader>p :set paste!<CR>
 map <Leader>c :set cursorline!<CR>
 
@@ -78,11 +79,6 @@ set lazyredraw
 
 map __ :set hls!<CR>
 map _ic :set ignorecase!<CR>
-
-let mapleader="\\"
-map <Leader>h :set hls!<CR>
-map <Leader>n :set number!<CR>
-map <Leader>p :set paste!<CR>
 
 map <C-n> :NERDTreeToggle<CR>
 map <C-h> <C-w><C-h>
