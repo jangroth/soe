@@ -45,14 +45,20 @@ find_proxy()
   fi
 }
 
-function set-env()
-{
-  local path=$HOME/$1
-  if [ -f $path ]; then
-    cat $path
-    source $path
+find-up () {
+  path=$(pwd)
+  while [[ "$path" != "" && ! -e "$path/$1" ]]; do
+    path=${path%/*}
+  done
+  echo "$path"
+}
+
+function activate-venv() {
+  path_to_venv=`find-up 'venv'`
+  if [[ -n $path_to_venv ]] ; then
+    source "${path_to_venv}/venv/bin/activate"
   else
-    echo "Cannot find $path"
+    echo 'No venv found in this project. Did you create one?'
   fi
 }
 

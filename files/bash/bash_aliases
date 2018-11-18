@@ -14,8 +14,8 @@ alias egrep='egrep --color=auto'
 
 alias pstree='pstree -ahp'
 
-alias venv2='virtualenv --python=python2 venv2'
-alias venv3='virtualenv --python=python3 venv3'
+alias venv2='virtualenv --python=python2 venv'
+alias venv3='virtualenv --python=python3 venv'
 
 alias tmls='tmux list-sessions'
 alias tmas_function='echo "Attach to tmux session"'
