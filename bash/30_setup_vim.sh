@@ -19,7 +19,11 @@ ln -s $USER_HOME/.vim/gvimrc $USER_HOME/.gvimrc
 mkdir -p $USER_HOME/.vim/.vimswap
 mkdir -p $USER_HOME/.vim/bundle
 
-git clone https://github.com/scrooloose/nerdtree $USER_HOME/.vim/bundle/nerdtree
-git clone https://github.com/pearofducks/ansible-vim $USER_HOME/.vim/bundle/ansible-vim
+git clone --depth=1 --branch=master https://github.com/scrooloose/nerdtree $USER_HOME/.vim/bundle/nerdtree
+git clone --depth=1 --branch=master https://github.com/Xuyuanp/nerdtree-git-plugin.git $USER_HOME/.vim/bundle/nerdtree-git-plugin
+git clone --depth=1 --branch=master https://github.com/pearofducks/ansible-vim $USER_HOME/.vim/bundle/ansible-vim
+git clone --depth=1 --branch=master https://tpope.io/vim/surround.git $USER_HOME/.vim/bundle/surround
 
-echo "updated vim"
+find . -type d -name '.git' -maxdepth 2 | xargs rm -rf {}
+
+cho"updated vim"
