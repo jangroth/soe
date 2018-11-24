@@ -24,6 +24,6 @@ git clone --depth=1 --branch=master https://github.com/Xuyuanp/nerdtree-git-plug
 git clone --depth=1 --branch=master https://github.com/pearofducks/ansible-vim $USER_HOME/.vim/bundle/ansible-vim
 git clone --depth=1 --branch=master https://tpope.io/vim/surround.git $USER_HOME/.vim/bundle/surround
 
-find . -type d -name '.git' -maxdepth 2 | xargs rm -rf {}
+find $USER_HOME/.vim/bundle/ -maxdepth 2 -type d -name '.git' | xargs rm -rf {}
 
-cho"updated vim"
+echo "updated vim"
