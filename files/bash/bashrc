@@ -1,6 +1,9 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# set vi mode
+set -o vi
+
 export THIS_OS='linux'
 if [[ $OSTYPE == 'darwin18' ]]; then
   export THIS_OS='macos'
