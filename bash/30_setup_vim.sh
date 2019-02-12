@@ -23,6 +23,7 @@ git clone --depth=1 --branch=master https://github.com/scrooloose/nerdtree $USER
 git clone --depth=1 --branch=master https://github.com/Xuyuanp/nerdtree-git-plugin.git $USER_HOME/.vim/bundle/nerdtree-git-plugin
 git clone --depth=1 --branch=master https://github.com/pearofducks/ansible-vim $USER_HOME/.vim/bundle/ansible-vim
 git clone --depth=1 --branch=master https://tpope.io/vim/surround.git $USER_HOME/.vim/bundle/surround
+git clone --depth=1 --branch=master https://github.com/plasticboy/vim-markdown.git $USER_HOME/.vim/bundle/vim-markdown
 
 find $USER_HOME/.vim/bundle/ -maxdepth 2 -type d -name '.git' | xargs rm -rf {}
 
