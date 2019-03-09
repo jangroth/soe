@@ -8,8 +8,7 @@ prompt_command()
   find_awsume_role
   find_virtual_env
   find_proxy
-  #__git_ps1 "}\[$txtcyn\]\${virtual_env}\${proxy}\u@\h\[$txtrst\] \w" "\[$txtblu\]\${aws_role}\[$txtrst\]\$ "
-  __git_ps1 "\n${bldcyn}\u@\h${txtrst} ${txtgrn}${proxy}${virtual_env}${aws_role}" "${txtrst}\n${bldwht}${white_arrow}${txtrst} ${bldred}${exit_code}${txtrst}${txtcyn}\w${txtrst} \$ "
+  __git_ps1 "\n${bldcyn}\u@\h${txtrst} ${txtgrn}${proxy}${virtual_env}${aws_role}" "${txtrst}\n ${bldwht}${white_arrow}${txtrst} ${bldred}${exit_code}${txtrst}${txtcyn}\w${txtrst} \$ "
 }
 
 find_virtual_env()
