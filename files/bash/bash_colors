@@ -43,5 +43,5 @@ txtrst="$(tput sgr 0)"    # Text Reset
 
 white_arrow=$'\xe2\x86\xb3'
 snake=$'\xF0\x9F\x90\x8D'
-cloud=$'\xF0\x9F\x94\xA5'
+cloud=$'\xe2\x98\x81'
 computer=$'\xF0\x9F\x92\xBB'
