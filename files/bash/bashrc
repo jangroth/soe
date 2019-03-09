@@ -42,9 +42,9 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 # Show if there are untracked files (%)
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 # Show how we're tracking relative to upstream
-export GIT_PS1_SHOWUPSTREAM="auto"
+export GIT_PS1_SHOWUPSTREAM="auto verbose name"
 # Show colours in bash prompt
-export GIT_PS1_SHOWCOLORHINTS=1
+export GIT_PS1_SHOWCOLORHINTS=""
 # Show if there is anything stashed ($)
 export GIT_PS1_SHOWSTASHSTATE=1
 
