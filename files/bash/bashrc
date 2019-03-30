@@ -87,7 +87,7 @@ if [[ $THIS_OS == 'macos' ]]; then
   export MAVEN_HOME="/usr/local/Cellar/maven/3.5.3"
 fi
 
-USER_BIN="${USER_HOME}/bin"
+USER_BIN="${HOME}/bin"
 
 if [ -d "${RBENV_ROOT}" ]; then
   export PATH="${RBENV_ROOT}/bin:${PATH}"
