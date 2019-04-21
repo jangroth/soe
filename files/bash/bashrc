@@ -75,7 +75,7 @@ export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 
 export EDITOR="vim"
-export PROJECTS_HOME="$HOME/data/dev/projects"
+export PROJECTS_HOME="$HOME/Projects"
 export ENVIRONMENTS_HOME="$HOME/data/dev/environments"
 
 export JAVA_HOME="$HOME/data/dev/environments/java/jdk/java"
