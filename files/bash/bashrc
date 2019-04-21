@@ -88,6 +88,7 @@ if [[ $THIS_OS == 'macos' ]]; then
 fi
 
 USER_BIN="${HOME}/bin"
+USER_LOCAL_BIN="${HOME}/.local/bin"
 
 if [ -d "${RBENV_ROOT}" ]; then
   export PATH="${RBENV_ROOT}/bin:${PATH}"
@@ -95,6 +96,9 @@ if [ -d "${RBENV_ROOT}" ]; then
 fi
 if [ -d "${USER_BIN}" ]; then
   export PATH="${USER_BIN}:${PATH}"
+fi
+if [ -d "${USER_LOCAL_BIN}" ]; then
+  export PATH="${USER_LOCAL_BIN}:${PATH}"
 fi
 if [ -d "${JAVA_HOME}" ]; then
   export PATH="${JAVA_HOME}/bin:${PATH}"
