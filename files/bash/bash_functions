@@ -72,7 +72,7 @@ _p()
     local cur prev opts
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
-    opts=`ls -la $PROJECTS_HOME | grep -e '^d' | awk '{print $9}' | grep -v '^\.'`
+    opts=`ls -laH $PROJECTS_HOME | grep -e '^d' | awk '{print $9}' | grep -v '^\.'`
     COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
     return 0
 }
