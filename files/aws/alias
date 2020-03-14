@@ -1,0 +1,32 @@
+[toplevel]
+
+whoami = sts get-caller-identity
+
+running-instances = ec2 describe-instances \
+    --filter Name=instance-state-name,Values=running \
+    --output table \
+    --query 'Reservations[].Instances[].{ID: InstanceId,Hostname: PublicDnsName,Name: Tags[?Key==`Name`].Value | [0],Type: InstanceType, Platform: Platform || `Linux`}'
+
+tostring =
+  !f() {
+    jp -f "${1}" 'to_string(@)'
+  }; f
+
+tostring-with-jq =
+  !f() {
+    cat "${1}" | jq 'tostring'
+  }; f
+
+docker-ecr-login =
+  !f() {
+    region=$(aws configure get region)
+    endpoint=$(aws ecr get-authorization-token --region $region --output text --query authorizationData[].proxyEndpoint)
+    passwd=$(aws ecr get-authorization-token --region $region --output text --query authorizationData[].authorizationToken | base64 --decode | cut -d: -f2)
+    docker login -u AWS -p $passwd $endpoint
+  }; f
+
+myip =
+  !f() {
+    dig +short myip.opendns.com @resolver1.opendns.com
+  }; f
+

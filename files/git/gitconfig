@@ -22,9 +22,14 @@
   # stash ignored, untracked, and tracked files
   staaash = stash --all
 
+  fap = fetch --all --prune
+  cam = commit --amend --no-edit
+  pfff = push --force
+
   alias = "config --get-regexp ^alias\\."
 [core]
 	editor = vim
+  pager = "less -F -X"
 [color]
 	ui = true
 [push]

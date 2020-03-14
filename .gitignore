@@ -1,3 +1,5 @@
 ansible/.vagrant/
 ansible/site.retry
 ansible/*.log
+docker/files
+docker/shell
