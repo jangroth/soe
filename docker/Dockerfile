@@ -12,7 +12,7 @@ RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     update-locale LANG=$LANG LC_ALL=$LC_ALL LANGUAGE=$LANGUAGE
 
 # Common packages
-RUN apt-get update && apt-get install -y \
+RUN apt-get install -y \
       build-essential \
       curl \
       git \
@@ -27,9 +27,9 @@ RUN apt-get update && apt-get install -y \
       tree \
       tzdata \
       vim \
-      zsh \
       wget \
-      zip
+      zip \
+      zsh
 
 RUN pip3 install jp
 

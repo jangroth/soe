@@ -1,0 +1,97 @@
+export TERM="xterm-256color"
+export ZSH_HOME=$HOME/.zsh
+export ZSH=$HOME/.oh-my-zsh
+
+# ZSH settings
+ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_MODE='nerdfont-complete'
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vcs newline context dir virtualenv newline aws)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)
+
+source $ZSH/oh-my-zsh.sh
+plugins=(git aws colored-man-pages)
+
+# User configuration
+
+platform='unknown'
+unamestr=`uname`
+if [ "$unamestr" = 'Linux' ]; then
+   platform='linux'
+elif [ "$unamestr" = 'Darwin' ]; then
+   platform='darwin'
+fi
+export PLATFORM=$platform
+export MANPATH="/usr/local/man:$MANPATH"
+export LANG=en_US.UTF-8
+export EDITOR='vim'
+export ARCHFLAGS="-arch x86_64"
+export PATH="${HOME}/.local/bin:$PATH"
+
+# history file
+HISTFILE="$HOME/.zsh/.zsh_history"
+HISTSIZE=10000000
+SAVEHIST=10000000
+setopt BANG_HIST                 # Treat the '!' character specially during expansion.
+setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
+setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
+setopt SHARE_HISTORY             # Share history between all sessions.
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
+setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
+setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
+setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
+setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
+setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
+setopt HIST_BEEP
+
+if [ -f $HOME/.shell_aliases ]; then
+    source $ZSH_HOME/.shell_aliases
+fi
+
+# vi mode
+bindkey -v
+export KEYTIMEOUT=5
+
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+bindkey '^R' history-incremental-search-backward
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+if [ -f "$ZSH_HOME/git-completion" ] &&
+   [ -f "$ZSH_HOME/_git" ]; then
+  zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
+  fpath=(~/.zsh $fpath)
+fi
+
+# AWS
+AWS_DEFAULT_PROFILE=jan
+[ -f "/usr/local/bin/aws_completer" ] && complete -C '/usr/local/bin/aws_completer' aws
+
+# This is to not invoke 'less' on various commands like aws and git
+unset LESS;

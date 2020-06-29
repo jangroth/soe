@@ -6,11 +6,11 @@ source ./config.sh
 
 print_info_text "tmux"
 
-[ -d $USER_HOME/.tmux ] && rm -rf $USER_HOME/.tmux
-[ -f $USER_HOME/.tmux.conf ] && rm -f $USER_HOME/.tmux.conf
+[ -d $HOME/.tmux ] && rm -rf $HOME/.tmux
+[ -f $HOME/.tmux.conf ] && rm -f $HOME/.tmux.conf
 
-cp -r ../files/tmux/tmux.conf $USER_HOME/.tmux.conf
+cp -r ../files/tmux/tmux.conf $HOME/.tmux.conf
 
-git clone https://github.com/tmux-plugins/tpm $USER_HOME/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 
 echo "tmux set up, use 'prefix+I' to install tmux plugins."
