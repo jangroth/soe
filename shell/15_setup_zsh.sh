@@ -22,6 +22,8 @@ cp -r "${current_dir}/../files/zsh/p10k.zsh" $HOME/.p10k.zsh
 cp -r "${current_dir}/../files/shell/shell_aliases" $HOME/.zsh/.shell_aliases
 
 # update git dependencies
-if [ $INSTALL = true ] || [ ! -d "$HOME/.zsh/powerlevel10k" ]; then
-  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.zsh/powerlevel10k
+if [ $INSTALL = true ] || [ ! -d "$HOME/.oh-my-zsh" ] || [ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
+  rm -rf $HOME/.oh-my-zsh
+  git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+  git clone --depth 1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
 fi
