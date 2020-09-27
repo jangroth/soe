@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 alias ll='ls -alF'
 alias la='ls -A'
@@ -14,8 +14,8 @@ alias egrep='egrep --color=auto'
 
 alias pstree='pstree -ahp'
 
-if [ $platform = 'linux' ]; then
+if [[ "${PLATFORM}" == "linux" ]]; then
   alias ls='ls -la --color=auto'
-else
+elif [[ "${PLATFORM}" == "darwin" ]]; then
   alias ls='ls -laG'
 fi

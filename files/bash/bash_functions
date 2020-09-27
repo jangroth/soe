@@ -1,0 +1,80 @@
+#!/bin/bash
+
+prompt_command()
+{
+  local last_exit_code="$?"
+  history -a
+  find_exit_code $last_exit_code
+  find_awsume_role
+  find_virtual_env
+  find_proxy
+  __git_ps1 "\n${bldcyn}\u@\h${txtrst} ${txtgrn}${proxy}${virtual_env}${aws_role}" "${txtrst}\n ${bldwht}${white_arrow}${txtrst} ${bldred}${exit_code}${txtrst}${txtcyn}\w${txtrst} \$ "
+}
+
+find_virtual_env()
+{
+  if [[ "$VIRTUAL_ENV" ]]; then
+    virtual_env="(${snake} `basename \"$VIRTUAL_ENV\"`) "
+  else
+    virtual_env=''
+  fi
+}
+
+find_awsume_role()
+{
+  if [[ "$AWSUME_PROFILE" ]]; then
+    aws_role="(${cloud} ${AWSUME_PROFILE})"
+  fi
+}
+
+find_exit_code()
+{
+  if [[ $1 == 0 ]]; then
+    exit_code=''
+  else
+    exit_code=$'\xE2\x9C\x96 '
+  fi
+}
+
+find_proxy()
+{
+  if [[ `env | grep 'http.\{0,1\}_proxy'` ]]; then
+    proxy="(${computer} ) "
+  else
+    proxy=''
+  fi
+}
+
+find-up () {
+  path=$(pwd)
+  while [[ "$path" != "" && ! -e "$path/$1" ]]; do
+    path=${path%/*}
+  done
+  echo "$path"
+}
+
+function activate-venv() {
+  path_to_venv=`find-up 'venv'`
+  if [[ -n $path_to_venv ]] ; then
+    source "${path_to_venv}/venv/bin/activate"
+  else
+    echo 'No venv found in this project. Did you create one?'
+  fi
+}
+
+function p()
+{
+    cd $PROJECTS_HOME/$1
+}
+
+_p()
+{
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    opts=`ls -laH $PROJECTS_HOME | grep -e '^d' | awk '{print $9}' | grep -v '^\.'`
+    COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+    return 0
+}
+
+complete -F _p p

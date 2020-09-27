@@ -1,0 +1,8 @@
+#compdef pro _pro
+
+function _pro() {
+  compadd `ls -laH $PROJECTS_HOME | grep -e '^d' | awk '{print $9}' | grep -v '^\.'`
+  return 0
+}
+
+_pro

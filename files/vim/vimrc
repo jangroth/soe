@@ -105,7 +105,8 @@ let @b='i**ea**'
 " Delete space at line end
 let @s='$x0'
 " Delete all trailing spaces in file
-let @S=':%s/\s\+$//g'
+let @S=':%s/\s\+$//g
+'
 " Break line after 100 characters (minus last word)
-let @l='0100lbXi'
-
+let @l='0100lbXi
+'
