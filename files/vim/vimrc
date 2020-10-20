@@ -97,7 +97,8 @@ highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+\%#\@<!$/
 
 " define macros
-" Use Ctrl-V + ESC for special characters
+" Use Ctrl-V + ESC for escape
+" Use Ctrl-V + Enter for enter
 " markdown italics
 let @i='i*ea*'
 " markdown bold
@@ -105,8 +106,8 @@ let @b='i**ea**'
 " Delete space at line end
 let @s='$x0'
 " Delete all trailing spaces in file
-let @S=':%s/\s\+$//g
-'
+let @S=':%s/\s\+$//g'
 " Break line after 100 characters (minus last word)
-let @l='0100lbXi
-'
+let @l='0100lbXi'
+" Insert external link into markdown
+let @L='<a href="eA" target="_blank"></a>hhh'

@@ -7,10 +7,10 @@ set -e
 echo 'Configuring vim...'
 confirm_binaries "git" "vim" "curl"
 
-cp -rf "${DOT_ROOT}/files/vim" $HOME/.vim
-ln -sf $HOME/.vim/vimrc $HOME/.vimrc
-
 mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle $HOME/.vim/.vimswap
+
+cp -rf "${DOT_ROOT}/files/vim/." $HOME/.vim
+ln -sf $HOME/.vim/vimrc $HOME/.vimrc
 
 # update remote dependencies
 if [ "${DOT_REINSTALL}" = "true" ] || [ ! -f "$HOME/.vim/autoload/pathogen.vim" ]; then
