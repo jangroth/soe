@@ -1,5 +1,5 @@
 #!/bin/sh
-set -ex
+set -e
 [ "$DOT_DEBUG" = 'true' ] && set -x
 
 . "$(dirname "$0")/config.sh"

@@ -95,7 +95,7 @@ fi
 
 # aws
 if `which aws &>/dev/null` ; then
-   AWS_DEFAULT_PROFILE=jan
+   export AWS_DEFAULT_PROFILE=jan
    #[ -f "/usr/local/bin/aws_completer" ] && complete -C '/usr/local/bin/aws_completer' aws
 fi
 
