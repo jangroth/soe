@@ -1,6 +1,6 @@
 #!/bin/sh
-set -e
-[ "$DOT_DEBUG" == 'true' ] && set -x
+set -ex
+[ "$DOT_DEBUG" = 'true' ] && set -x
 
 . "$(dirname "$0")/config.sh"
 
@@ -28,7 +28,9 @@ if [ "${DOT_REINSTALL}" = "true" ] || [ ! -d "$HOME/.oh-my-zsh" ] || [ ! -d "$HO
     git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
     git clone --depth 1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
     git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.oh-my-zsh/custom/fzf
-    $HOME/.oh-my-zsh/custom/fzf/install --all --key-bindings --completion --no-update-rc --64
+    $HOME/.oh-my-zsh/custom/fzf/install --all --key-bindings --completion --no-update-rc
+    git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+    git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 fi
 
 mkdir -p $HOME/.oh-my-zsh/completions

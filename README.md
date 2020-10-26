@@ -12,6 +12,8 @@ My dotfiles and a few simple scripts to put them in place.
 * [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
 * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 * [fzf](https://github.com/junegunn/fzf)
+* [auto-suggestions](https://github.com/zsh-users/zsh-autosuggestions)
+* [syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 ### `20_setup_tmux.sh`
 * [tpm](https://github.com/tmux-plugins/tpm)

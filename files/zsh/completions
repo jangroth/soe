@@ -1,7 +1,7 @@
 #compdef pro _pro
 
 function _pro() {
-  compadd `ls -laH $PROJECTS_HOME | grep -e '^d' | awk '{print tolower($9)}' | grep -v '^\.'`
+  compadd `ls -laH $PROJECTS_HOME | grep -e '^d' | awk '{print $9}' | grep -v '^\.'`
   return 0
 }
 
