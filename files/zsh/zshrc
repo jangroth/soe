@@ -1,6 +1,6 @@
 zmodload zsh/zprof
 
-plugins=(zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(zsh-autosuggestions zsh-syntax-highlighting docker docker-compose)
 
 export TERM="xterm-256color"
 export ZSH_HOME=$HOME/.zsh
