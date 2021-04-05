@@ -106,12 +106,12 @@ if [ -d "$HOME/.pyenv" ] ; then
    eval "$(pyenv init -)"
 fi
 
-# java
-if `which java &>/dev/null` ; then
-   export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-   export M2_HOME=/opt/maven
-   export MAVEN_HOME=/opt/maven
-   export PATH=${M2_HOME}/bin:${PATH}:/opt
+# jenv
+if $(which "jenv" &>/dev/null); then
+  export PATH="$HOME/.jenv/bin:$PATH"
+  eval "$(jenv init -)"
+  export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"
+  alias jenv_set_java_home='export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"'
 fi
 
 # add completions, only update cache once a day
