@@ -22,7 +22,7 @@
   # stash ignored, untracked, and tracked files
   staaash = stash --all
 
-  fap = fetch --all --prune
+  fap = fetch --all --tags --prune --prune-tags
   cam = commit --amend --no-edit
   pfff = push --force
 
