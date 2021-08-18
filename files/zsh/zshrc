@@ -97,14 +97,6 @@ if [ -f "$ZSH_HOME/git-completion.bash" ] &&
   fpath=(~/.zsh $fpath)
 fi
 
-# aws
-if `which aws &>/dev/null` ; then
-	autoload bashcompinit && bashcompinit
-	autoload -Uz compinit && compinit
-	compinit
-  [ -f "/usr/local/bin/aws_completer" ] && complete -C '/usr/local/bin/aws_completer' aws
-fi
-
 # pyenv
 if [ -d "$HOME/.pyenv" ] ; then
    export PYENV_ROOT="$HOME/.pyenv"
@@ -121,9 +113,11 @@ if $(which "jenv" &>/dev/null); then
 fi
 
 # add completions, only update cache once a day
+autoload bashcompinit && bashcompinit
 autoload -Uz compinit
 for dump in ~/.zcompdump(N.mh+24); do
   compinit
+  [ -f "/usr/local/bin/aws_completer" ] && complete -C '/usr/local/bin/aws_completer' aws
 done
 
 # This is to not invoke 'less' on various commands like aws and git
