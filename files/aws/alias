@@ -2,6 +2,11 @@
 
 whoami = sts get-caller-identity
 
+whichcfn =
+  !f() {
+    aws cloudformation describe-stack-resources --physical-resource-id "${1}"
+  }; f
+
 running-instances = ec2 describe-instances \
     --filter Name=instance-state-name,Values=running \
     --output table \
